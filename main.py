@@ -42,8 +42,8 @@ class Superhero:
     def __repr__(self):
         return self.name + " " + self.int
 
-    # def __lt__(self, other_superhero): #сравнение супергероев по интеллекту
-    #     return self.int < other_superhero.int
+    def __lt__(self, other_superhero): #сравнение супергероев по интеллекту
+         return self.int < other_superhero.int
 
 
 
@@ -52,10 +52,12 @@ class Superhero:
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     # print_hi('PyCharm')
-    superheroes_names = ["Hulk", "Captain America", "Thanos"]
+    superheroes_names = ["Hulk", "Thanos", "Captain America"]
     superheroes = [Superhero(i) for i in superheroes_names]
     print(superheroes)
-    super_clever = min(superheroes, key=lambda x: x.int) #max() почему-то выдавл Халка с мин интеллектом
+    super_clever = min(superheroes, key=lambda x: x.int) #max() почему-то выдавал Халка с мин интеллектом
+    super_clever = min(superheroes) #через __lt__ тоже почему-то нужно min использовать
+
     print(super_clever)
     #thanos = Superhero("Thanos")
     #superheroes.append(thanos)
