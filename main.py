@@ -38,7 +38,7 @@ class Superhero:
         #print(href)
         response = requests.get(href)
         res =  response.json()
-        self.int = res["response"]
+        self.int = res["intelligence"]
     def __repr__(self):
         return self.name + " " + self.int
 
